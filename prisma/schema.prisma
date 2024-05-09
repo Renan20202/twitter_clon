@@ -56,6 +56,40 @@ model Comment {
   post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 model Notification {
   id                 String @id @default(auto()) @map("_id") @db.ObjectId
   body               String

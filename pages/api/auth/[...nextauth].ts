@@ -1,9 +1,11 @@
-import bcrypt from "bcrypt"
-import NextAuth, { AuthOptions } from "next-auth"
-import CredentialsProvider from "next-auth/providers/credentials"
-import { PrismaAdapter } from "@next-auth/prisma-adapter"
+import bcrypt from "bcrypt";
+import NextAuth, { AuthOptions } from "next-auth";
+import CredentialsProvider from "next-auth/providers/credentials";
+import { PrismaAdapter } from "@next-auth/prisma-adapter";
 
-import prisma from "@/libs/prismadb"
+import prisma from "@/libs/prismadb";
+
+const isDevelopment = process.env.NODE_ENV === 'development';
 
 export const authOptions: AuthOptions = {
   adapter: PrismaAdapter(prisma),
@@ -42,7 +44,7 @@ export const authOptions: AuthOptions = {
       }
     })
   ],
-  debug: process.env.NODE_ENV === 'development',
+  debug: isDevelopment,
   session: {
     strategy: 'jwt',
   },
